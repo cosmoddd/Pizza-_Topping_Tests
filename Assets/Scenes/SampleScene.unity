@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 477423743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2965174, y: 1.7131, z: -3.3071408}
+  m_LocalPosition: {x: 0, y: -0.97, z: 0}
   m_LocalScale: {x: 19.404894, y: 0.29591337, z: 19.404894}
   m_Children: []
   m_Father: {fileID: 0}
@@ -350,13 +350,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0.20848672, y: 0.25675678, z: -0.056825574, w: -0.9420086}
-  m_LocalPosition: {x: 6.37545, y: 12.313538, z: -15.9046}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: -0.01, y: 13, z: -14.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &941572967
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 941572968}
   - component: {fileID: 941572969}
   m_Layer: 0
-  m_Name: NEEDS OBJECT POOLER
+  m_Name: Object Pooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,9 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingAmount: 0
-  objectPrefab: {fileID: 0}
-  sprinkleRate: 0
+  poolingAmount: 10
+  objectPrefab: {fileID: 100000, guid: 5714e01594b44de49a8fe3036e842b15, type: 3}
+  sprinkleRate: 0.3
+  pooledObjects: []
+  deployedObjects: []
 --- !u!1 &1908153467
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1908153468
 ParticleSystemRenderer:
   serializedVersion: 6
