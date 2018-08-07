@@ -11,7 +11,7 @@ public class Ingredient : MonoBehaviour {
 	
 	public string ingredientID;
 	
-	void OnCollisionEnter(Collision collision)
+	public virtual void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.tag == "Pizza")
 		{
@@ -24,7 +24,7 @@ public class Ingredient : MonoBehaviour {
 
 		if (collision.gameObject.tag == "DeSpawn")
 			{
-
+				
 				this.transform.localPosition = new Vector3 (0,0,0);
 				this.gameObject.SetActive(false);
 				this.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
@@ -34,7 +34,6 @@ public class Ingredient : MonoBehaviour {
 			}
 
 	}
-
 
 	public void RemoveTopping()
 	{
