@@ -1,24 +1,24 @@
 fileFormatVersion: 2
-guid: 5714e01594b44de49a8fe3036e842b15
+guid: aeb3915e1596a514ea4107f36d319db3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Pizza_Collision
     400000: //RootNode
-    2100000: Pepperoni
+    400002: Pizza_Collision
+    2100000: None__lucali_pizza_jpg
+    2100002: unnamed
     2300000: //RootNode
+    2300002: Pizza_Collision
     3300000: //RootNode
-    4300000: Cylinder
-    4300002: Pepperoni
-    4300004: Fez
+    3300002: Pizza_Collision
+    4300000: Torus_008
+    4300002: Pizza_Main
+    4300004: Pizza_Collision
     7400000: Default Take
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pepperoni
-    second: {fileID: 2100000, guid: 4dd7f86dc02b0fa4181b5bc2d0c7a4f7, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

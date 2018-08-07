@@ -88,15 +88,21 @@ public void Update()
 	
 		return;
 	}
-		void OnEnable()
-		{
-			ObjectPooler.SendPrefabIngredient += SetPrefabIngredient;
-		}
-		void OnDisable()
-		{
-			ObjectPooler.SendPrefabIngredient -= SetPrefabIngredient;
-		}
+
+	public void SetIngredientID(string s)
+	{
+		ingredientID = s;
 	}
+
+	void OnEnable()
+	{
+		ObjectPooler.SendPrefabIngredient += SetPrefabIngredient;
+	}
+	void OnDisable()
+	{
+		ObjectPooler.SendPrefabIngredient -= SetPrefabIngredient;
+	}
+}
 
 public enum IngredientType
 {

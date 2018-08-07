@@ -9,6 +9,7 @@ public class Ingredient : MonoBehaviour {
 	public static event IngredientDelegate ToppingRemove;
 	public static event IngredientDelegate ToppingCrash;
 	
+	public string ingredientID;
 	
 	void OnCollisionEnter(Collision collision)
 	{

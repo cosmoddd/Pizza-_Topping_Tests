@@ -23,6 +23,7 @@ public class ObjectPooler : MonoBehaviour
             GameObject obj = (GameObject)Instantiate(objectPrefab);
 			obj.name = (ingredientID + " " + i);
             obj.SetActive(false);
+			obj.GetComponent<Ingredient>().ingredientID = ingredientID;
             pooledObjects.Add(obj);
         }
     }
