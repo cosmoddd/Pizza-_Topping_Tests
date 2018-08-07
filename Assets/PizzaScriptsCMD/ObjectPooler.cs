@@ -4,116 +4,56 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-	public IngredientType ingredient;
+	public delegate void ObjectPoolerDelegate(GameObject o);
+	public static event ObjectPoolerDelegate SendPrefabIngredient;
+
+	public string ingredientID;
     public int poolingAmount;
     public GameObject objectPrefab;
-    public float sprinkleRate = 3;
     public List<GameObject> pooledObjects;
 	public List<GameObject> deployedObjects;
-	float actionTime = 0;
-	public bool hovering = false;
-	public LayerMask layerMask;
-	MeshRenderer thisMesh;
 
 	bool placeHolderCreated = false;
 
     void Start()
     {
-		thisMesh = GetComponent<MeshRenderer>();
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < poolingAmount; i++)
         {
             GameObject obj = (GameObject)Instantiate(objectPrefab);
-			obj.name = ("Pepperoni "+ i);
+			obj.name = (ingredientID + " " + i);
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
     }
-    void Update()
-    {
-		// Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		// RaycastHit hit;
 
-		// if (Physics.Raycast(ray, out hit, 100f, layerMask))
-		// {
-		// 	this.transform.localPosition = hit.point;
-		// 	PlaceHolderCreator(this.transform.localPosition);
-		// }
-
-        // if (Input.GetButton("Fire1")&& Time.time > actionTime)
-        // {
-		// 	{	
-		// 		actionTime = Time.time + sprinkleRate;
-		// 		DeployedObjectsManager();
-		// 	}
-        // }
-
-		// if (!Physics.Raycast(ray, out hit, 100f, layerMask))
-		// {
-		// 	PlaceHolderClear();
-		// }
-    }
-
-	public void PlaceHolderCreator(Vector3 v)
+	void DeployedObjectsManager(string s, Vector3 v)
 	{
-		if (!placeHolderCreated)
+		if (s == ingredientID)
 		{
-			print("World placeholder created");
-			thisMesh.enabled = true;
-			v = v + new Vector3(0,6f,0); // offset the Vector 3
-			GameObject placeHolder = Instantiate(objectPrefab, 
-												v, 
-												Quaternion.Euler(90,0,0));
-			placeHolder.GetComponent<BoxCollider>().enabled = false;
-			placeHolder.GetComponent<Rigidbody>().useGravity = false;
-			placeHolder.transform.SetParent(this.transform, true);
-			placeHolderCreated = true;
-		}
-		return;
-	}
-
-	public void PlaceHolderClear()
-	{
-		if (placeHolderCreated)
-		{
-			print("Placeholder clear");
-			if (transform.GetChild(0)!=null)
+			if (deployedObjects.Count < poolingAmount && FetchPooledObject()!=null)
 			{
-				Destroy(transform.GetChild(0).gameObject);
+				GameObject nextObject = FetchPooledObject();
+				RenderPooledObject(nextObject, v);
+				pooledObjects.Remove(nextObject);
+				deployedObjects.Insert(0,nextObject);
 			}
-			thisMesh.enabled = false;
-			placeHolderCreated = false;
-		}
-	
-		return;
-	}
-
-	void DeployedObjectsManager()
-	{
-		if (deployedObjects.Count < poolingAmount && FetchPooledObject()!=null)
-		{
-			GameObject nextObject = FetchPooledObject();
-			RenderPooledObject(nextObject);
-			pooledObjects.Remove(nextObject);
-			deployedObjects.Insert(0,nextObject);
-		}
-		else
-		{
-			GameObject lastObject = deployedObjects[deployedObjects.Count-1];		// reset the object
-			RenderPooledObject(lastObject);
-			deployedObjects.RemoveAt(deployedObjects.Count-1);
-			lastObject.GetComponent<Ingredient>().RemoveTopping();
-			deployedObjects.Insert(0,lastObject);
+			else
+			{
+				GameObject lastObject = deployedObjects[deployedObjects.Count-1];		// reset the object
+				RenderPooledObject(lastObject, v);
+				deployedObjects.RemoveAt(deployedObjects.Count-1);
+				lastObject.GetComponent<Ingredient>().RemoveTopping();
+				deployedObjects.Insert(0,lastObject);
+			}
 		}
 	}
 
-	public void RenderPooledObject(GameObject o)
+	public void RenderPooledObject(GameObject o, Vector3 v)
 	{
 			o.SetActive(true);
 			o.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-			o.transform.localPosition = new Vector3 (this.transform.localPosition.x,
-													 6f,
-													 this.transform.localPosition.z);
+			o.transform.localPosition = new Vector3 (v.x, 6f, v.z);
 	}
 
     public GameObject FetchPooledObject()
@@ -135,13 +75,29 @@ public class ObjectPooler : MonoBehaviour
 		pooledObjects.Insert(0,crashedObject);
 	}
 
+	public void GetPrefabIngredient (string s, Vector3 v)
+	{
+		if (s == ingredientID)
+		{
+			SendPrefabIngredient(objectPrefab);
+		}
+		else
+		{
+			return;
+		}
+	}
+
 	void OnEnable()
 	{
 		Ingredient.ToppingCrash += ReturnPooledObject;
+		ObjectPlacer.PlaceObject += DeployedObjectsManager;
+		ObjectPlacer.GetPrefab += GetPrefabIngredient;
 	}
 	void OnDisable()
 	{
 		Ingredient.ToppingCrash -= ReturnPooledObject;
+		ObjectPlacer.PlaceObject -= DeployedObjectsManager;
+		ObjectPlacer.GetPrefab -= GetPrefabIngredient;
 	}
 
 }

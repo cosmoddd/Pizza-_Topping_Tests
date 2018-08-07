@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 119531483}
+  - component: {fileID: 119531484}
   m_Layer: 0
   m_Name: Pepperoni
   m_TagString: Untagged
@@ -141,6 +142,23 @@ Transform:
   m_Father: {fileID: 1809936698}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119531484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 119531482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientID: Pepperoni
+  poolingAmount: 20
+  objectPrefab: {fileID: 1168036379503792, guid: f58f635d9172df94ca5f399769895d80,
+    type: 2}
+  pooledObjects: []
+  deployedObjects: []
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +239,7 @@ GameObject:
   - component: {fileID: 477423744}
   - component: {fileID: 477423749}
   m_Layer: 9
-  m_Name: pizza
+  m_Name: ActualPizza
   m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,11 +424,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 941572968}
-  - component: {fileID: 941572969}
   - component: {fileID: 941572971}
   - component: {fileID: 941572970}
+  - component: {fileID: 941572969}
   m_Layer: 0
-  m_Name: Object Pooler
+  m_Name: _SpawnerSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,19 +455,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 941572967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
+  m_Script: {fileID: 11500000, guid: b39fd364f90910b42957c0f50062f70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingAmount: 100
-  objectPrefab: {fileID: 1168036379503792, guid: f58f635d9172df94ca5f399769895d80,
-    type: 2}
-  sprinkleRate: 0.3
-  pooledObjects: []
-  deployedObjects: []
-  hovering: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
+  ingredientID: 
+  sprinkleRate: 0.5
+  prefabIngredient: {fileID: 0}
 --- !u!23 &941572970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -500,6 +511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998126511}
+  - component: {fileID: 998126512}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -520,6 +532,23 @@ Transform:
   m_Father: {fileID: 1809936698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998126512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 998126510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientID: Hushroom
+  poolingAmount: 20
+  objectPrefab: {fileID: 1168036379503792, guid: 5777daa35d656d34780bd5f60f3a35ef,
+    type: 2}
+  pooledObjects: []
+  deployedObjects: []
 --- !u!1 &1058111473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,6 +5309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2042324689}
+  - component: {fileID: 2042324690}
   m_Layer: 0
   m_Name: Basil
   m_TagString: Untagged
@@ -5300,3 +5330,20 @@ Transform:
   m_Father: {fileID: 1809936698}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042324690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042324688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientID: BadBasil
+  poolingAmount: 20
+  objectPrefab: {fileID: 1168036379503792, guid: 92196257eb5e60e44843fef559f79e8c,
+    type: 2}
+  pooledObjects: []
+  deployedObjects: []
