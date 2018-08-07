@@ -23,7 +23,7 @@ public class ObjectPooler : MonoBehaviour
             GameObject obj = (GameObject)Instantiate(objectPrefab);
 			obj.name = (ingredientID + " " + i);
             obj.SetActive(false);
-			obj.transform.SetParent(this.transform);
+			obj.transform.SetParent(this.transform, true);
 			obj.GetComponent<Ingredient>().ingredientID = ingredientID;
             pooledObjects.Add(obj);
         }
@@ -54,7 +54,7 @@ public class ObjectPooler : MonoBehaviour
 	public void RenderPooledObject(GameObject o, Vector3 v)
 	{
 			o.SetActive(true);
-			o.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+			o.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // i put it here because it's droppin
 			o.transform.localPosition = new Vector3 (v.x, 6f, v.z);
 	}
 
