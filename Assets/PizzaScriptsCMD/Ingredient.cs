@@ -10,11 +10,19 @@ public class Ingredient : MonoBehaviour {
 	public static event IngredientDelegate ToppingCrash;
 	
 	public string ingredientID;
-	
+
+	MeshRenderer thisMeshRenderer;
+	public Material cookedMaterial;
+
+	public float resizeWhenCooked = 1;
+
 	public virtual void OnCollisionEnter(Collision collision)
 	{
+
+	
 		if (collision.gameObject.tag == "Pizza")
 		{
+			thisMeshRenderer = GetComponent<MeshRenderer>();
 			this.gameObject.tag = "Pizza";
 			if (ToppingAdd != null)
 				ToppingAdd(this);
@@ -35,8 +43,28 @@ public class Ingredient : MonoBehaviour {
 
 	}
 
+	public void CookTopping()
+	{
+		if (gameObject.tag == "Pizza" && gameObject != null)
+		{
+			if (cookedMaterial != null)
+				thisMeshRenderer.material = cookedMaterial;
+			this.gameObject.transform.localScale = this.gameObject.transform.localScale * resizeWhenCooked;
+		}
+	}
+
 	public void RemoveTopping()
 	{
 		ToppingRemove(this);
+	}
+
+	public void OnEnable()
+	{
+		CookPizza.CookPizzaEvent += CookTopping;
+	}
+
+	public void OnDisable()
+	{
+		CookPizza.CookPizzaEvent -= CookTopping;
 	}
 }

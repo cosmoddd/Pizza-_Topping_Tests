@@ -43,6 +43,7 @@ public class ObjectPooler : MonoBehaviour
 			else
 			{
 				GameObject lastObject = deployedObjects[deployedObjects.Count-1];		// reset the object
+				lastObject.transform.SetParent(this.transform, true);
 				RenderPooledObject(lastObject, v);
 				deployedObjects.RemoveAt(deployedObjects.Count-1);
 				lastObject.GetComponent<Ingredient>().RemoveTopping();
@@ -73,6 +74,11 @@ public class ObjectPooler : MonoBehaviour
 	public void ReturnPooledObject (Ingredient ingredient)
 	{
 		GameObject crashedObject = ingredient.gameObject;
+		if (ingredient.GetComponent<Ingredient>().ingredientID == ingredientID)
+			{
+				crashedObject.transform.SetParent(this.transform);
+				crashedObject.transform.rotation = Quaternion.Euler(new Vector3(-90,0,0));
+			}
 		deployedObjects.Remove(crashedObject);
 		pooledObjects.Insert(0,crashedObject);
 	}
@@ -89,17 +95,28 @@ public class ObjectPooler : MonoBehaviour
 		}
 	}
 
+	public void ClearIngredients()
+	{
+		for (int i =0; i > pooledObjects.Count; i++)
+		{
+			Destroy(pooledObjects[i].gameObject);
+		}
+		pooledObjects.Clear();
+	}
+
 	void OnEnable()
 	{
 		Ingredient.ToppingCrash += ReturnPooledObject;
 		ObjectPlacer.PlaceObject += DeployedObjectsManager;
 		ObjectPlacer.GetPrefab += GetPrefabIngredient;
+		CookPizza.CookPizzaEvent += ClearIngredients;
 	}
 	void OnDisable()
 	{
 		Ingredient.ToppingCrash -= ReturnPooledObject;
 		ObjectPlacer.PlaceObject -= DeployedObjectsManager;
 		ObjectPlacer.GetPrefab -= GetPrefabIngredient;
+		CookPizza.CookPizzaEvent -= ClearIngredients;
 	}
 
 }

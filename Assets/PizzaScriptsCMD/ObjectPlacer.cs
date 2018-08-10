@@ -15,7 +15,7 @@ public float sprinkleRate;
 bool placeHolderCreated;
 public GameObject prefabIngredient;
 MeshRenderer thisMesh;
-
+bool cooked = false;
 
 public void Start()
 {
@@ -26,6 +26,10 @@ public void Start()
 
 public void Update()
 	{
+		if (cooked)
+		{
+			return;
+		}
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit, 100f, layerMask))
@@ -46,6 +50,11 @@ public void Update()
 		{
 			PlaceHolderClear();
 		}
+	}
+
+	public void CookedPizza()
+	{
+		cooked = true;
 	}
 
 	public void PlaceHolderCreator(Vector3 v)
@@ -97,10 +106,12 @@ public void Update()
 	void OnEnable()
 	{
 		ObjectPooler.SendPrefabIngredient += SetPrefabIngredient;
+		CookPizza.CookPizzaEvent += CookedPizza; 
 	}
 	void OnDisable()
 	{
 		ObjectPooler.SendPrefabIngredient -= SetPrefabIngredient;
+		CookPizza.CookPizzaEvent -= CookedPizza;
 	}
 }
 

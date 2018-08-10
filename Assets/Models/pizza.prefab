@@ -9,48 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1168036379503792}
+  m_RootGameObject: {fileID: 1715755122589678}
   m_IsPrefabAsset: 1
---- !u!1 &1168036379503792
+--- !u!1 &1715755122589678
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4010767365793774}
-  - component: {fileID: 33948498222159794}
-  - component: {fileID: 23993541451968490}
-  - component: {fileID: 95762960850876850}
-  - component: {fileID: 54076006722753188}
-  - component: {fileID: 65748493852085044}
-  - component: {fileID: 114661003951800636}
-  m_Layer: 0
-  m_Name: Pepperoni
-  m_TagString: Topping
+  - component: {fileID: 4948914006757114}
+  - component: {fileID: 33106478063339972}
+  - component: {fileID: 23500221131020036}
+  - component: {fileID: 54105001960340446}
+  - component: {fileID: 64244705760360554}
+  - component: {fileID: 114413558407263938}
+  m_Layer: 9
+  m_Name: pizza
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4010767365793774
+--- !u!4 &4948914006757114
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
+  m_GameObject: {fileID: 1715755122589678}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.080423}
+  m_LocalPosition: {x: 0, y: -1.05, z: 0}
+  m_LocalScale: {x: 4.6332097, y: 4.6332097, z: 4.6332097}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23993541451968490
+--- !u!23 &23500221131020036
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
+  m_GameObject: {fileID: 1715755122589678}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 4dd7f86dc02b0fa4181b5bc2d0c7a4f7, type: 2}
+  - {fileID: 2100000, guid: aeb3915e1596a514ea4107f36d319db3, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,69 +79,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33948498222159794
+--- !u!33 &33106478063339972
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
-  m_Mesh: {fileID: 4300002, guid: 5714e01594b44de49a8fe3036e842b15, type: 3}
---- !u!54 &54076006722753188
+  m_GameObject: {fileID: 1715755122589678}
+  m_Mesh: {fileID: 4300002, guid: aeb3915e1596a514ea4107f36d319db3, type: 3}
+--- !u!54 &54105001960340446
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
+  m_GameObject: {fileID: 1715755122589678}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65748493852085044
-BoxCollider:
+--- !u!64 &64244705760360554
+MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
+  m_GameObject: {fileID: 1715755122589678}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2.0000005, z: 2.0000005}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95762960850876850
-Animator:
   serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5714e01594b44de49a8fe3036e842b15, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114661003951800636
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: aeb3915e1596a514ea4107f36d319db3, type: 3}
+--- !u!114 &114413558407263938
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1168036379503792}
+  m_GameObject: {fileID: 1715755122589678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e70f88ad509e284687c7015947f2b12, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d56d134d57bae848b09c9ab718b40cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Pepperoni
-  cookedMaterial: {fileID: 2100000, guid: 6ef327fc323597842b6aa3376b5929aa, type: 2}
-  resizeWhenCooked: 0.8
+  ingredients: []
+  ingredientsIDs:
+  - Pepperoni
+  - Hushroom
+  - BadBasil

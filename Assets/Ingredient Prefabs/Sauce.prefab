@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54528733080375758}
   - component: {fileID: 114831582341484876}
   - component: {fileID: 114198167030495432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sauce
   m_TagString: Topping
   m_Icon: {fileID: 0}
@@ -140,5 +140,4 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 4ff8b56bbd9e1b24097ce91ec37120d9, type: 2}
   thisMesh: {fileID: 23757921663812480}
   sauceColliderTarget: {x: 1.5, y: 0.1, z: 1.5}
-  sauceScaleMeltingTarget: {x: 0.65, y: 0.1, z: 0.65}
-  sauceMeltingTarget: {x: 1, y: -1, z: 1}
+  sauceScaleMeltingTarget: {x: 1, y: 0.05, z: 1}

@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e70f88ad509e284687c7015947f2b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientID: Hushroom
+  cookedMaterial: {fileID: 2100000, guid: e0be6eca01c1c9440928322ce53abf1d, type: 2}
+  resizeWhenCooked: 1.2

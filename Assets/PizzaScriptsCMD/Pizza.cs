@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Pizza : MonoBehaviour {
 
+	public delegate void PizzaDelegate(Pizza pizza);
+	public static event PizzaDelegate Serve;
+
 	public List<Ingredient> ingredients;
 	public List<string> ingredientsIDs;
 
@@ -58,5 +61,11 @@ public class Pizza : MonoBehaviour {
 		}
 		float ingredientRatio = (Mathf.Round(ingredientAmount)/ingredients.Count) * 100;
 		print("The ingredient <b>"+ s +"</b> takes up <b>"+ ingredientRatio+ "%</b> of the pizza.  Nice one.");
+	}
+
+	public void ServePizza()
+	{
+		if (Serve !=null)
+			Serve(this);
 	}
 }
