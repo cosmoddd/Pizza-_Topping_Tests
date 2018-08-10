@@ -276,10 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Pepperoni
+  ingredientSO: {fileID: 11400000, guid: 2efff917ea53ce6419a9502cf37bab9f, type: 2}
   poolingAmount: 40
-  objectPrefab: {fileID: 1168036379503792, guid: f58f635d9172df94ca5f399769895d80,
-    type: 2}
   pooledObjects: []
   deployedObjects: []
 --- !u!1 &170076733
@@ -1271,10 +1269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Hushroom
+  ingredientSO: {fileID: 11400000, guid: 9a9a934aa3b05bd46b6a6e8b680a882e, type: 2}
   poolingAmount: 40
-  objectPrefab: {fileID: 1168036379503792, guid: 5777daa35d656d34780bd5f60f3a35ef,
-    type: 2}
   pooledObjects: []
   deployedObjects: []
 --- !u!1 &1058111473
@@ -1418,10 +1414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Sauce
-  poolingAmount: 5
-  objectPrefab: {fileID: 1377625913632714, guid: 4c1d7fc71f44dbe4ba4b73ad42f275ef,
-    type: 2}
+  ingredientSO: {fileID: 11400000, guid: f0cafa9f80eb5ed458a341bcb5bf6e0f, type: 2}
+  poolingAmount: 30
   pooledObjects: []
   deployedObjects: []
 --- !u!1 &1316540554
@@ -1649,6 +1643,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114413558407263938, guid: 2a09b99e881de154f8bac1f376c52a31,
+        type: 2}
+      propertyPath: ingredients.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4948914006757114, guid: 2a09b99e881de154f8bac1f376c52a31, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1844,7 +1843,7 @@ GameObject:
   - component: {fileID: 1622861656}
   - component: {fileID: 1622861655}
   m_Layer: 0
-  m_Name: Order
+  m_Name: Order (attach to dialog?)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1861,7 +1860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d26c2f84fe4b5545b347081385d3c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisOrder: {fileID: 11400000, guid: b1048324c32215642a45ebb0026dd5ee, type: 2}
+  thisOrderSO: {fileID: 11400000, guid: b1048324c32215642a45ebb0026dd5ee, type: 2}
 --- !u!4 &1622861656
 Transform:
   m_ObjectHideFlags: 0
@@ -2329,9 +2328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47544695c8263c14ebe02b2d3db00237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: BadBasil
-  poolingAmount: 5
-  objectPrefab: {fileID: 1168036379503792, guid: 92196257eb5e60e44843fef559f79e8c,
-    type: 2}
+  ingredientSO: {fileID: 11400000, guid: 329cbabe3aa9c5d49ade502d8c5c22b4, type: 2}
+  poolingAmount: 30
   pooledObjects: []
   deployedObjects: []

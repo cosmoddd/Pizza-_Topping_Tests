@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e70f88ad509e284687c7015947f2b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: BadBasil
+  ingredientSO: {fileID: 11400000, guid: 329cbabe3aa9c5d49ade502d8c5c22b4, type: 2}
   cookedMaterial: {fileID: 2100000, guid: 42e705705616a794f98ba359a98c9168, type: 2}
   resizeWhenCooked: 1

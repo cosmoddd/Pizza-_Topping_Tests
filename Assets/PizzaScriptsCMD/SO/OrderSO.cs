@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Order")]
-public class Order : ScriptableObject {
+[CreateAssetMenu(fileName = "Pizza/Order")]
+public class OrderSO : ScriptableObject {
 
 	public List <DesiredIngredient> desiredIngredients;
 	public float differential = .1f; // how much leeway will this customer give you
@@ -12,6 +12,6 @@ public class Order : ScriptableObject {
 [System.Serializable]
 public class DesiredIngredient
 {
-	public string ingredientID;
+	public IngredientSO ingredientSO;
 	public int desiredAmount;
 }

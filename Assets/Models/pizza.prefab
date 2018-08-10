@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: []
-  ingredientsIDs:
-  - Pepperoni
-  - Hushroom
-  - BadBasil
+  ingredientsSOs:
+  - {fileID: 11400000, guid: 329cbabe3aa9c5d49ade502d8c5c22b4, type: 2}
+  - {fileID: 11400000, guid: 9a9a934aa3b05bd46b6a6e8b680a882e, type: 2}
+  - {fileID: 11400000, guid: 2efff917ea53ce6419a9502cf37bab9f, type: 2}

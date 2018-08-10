@@ -143,6 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e70f88ad509e284687c7015947f2b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Pepperoni
+  ingredientSO: {fileID: 11400000, guid: 2efff917ea53ce6419a9502cf37bab9f, type: 2}
   cookedMaterial: {fileID: 2100000, guid: 6ef327fc323597842b6aa3376b5929aa, type: 2}
   resizeWhenCooked: 0.8

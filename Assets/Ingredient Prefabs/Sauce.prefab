@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e70f88ad509e284687c7015947f2b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientID: Sauce
+  ingredientSO: {fileID: 11400000, guid: f0cafa9f80eb5ed458a341bcb5bf6e0f, type: 2}
+  cookedMaterial: {fileID: 0}
+  resizeWhenCooked: 1
 --- !u!114 &114831582341484876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,3 +143,4 @@ MonoBehaviour:
   thisMesh: {fileID: 23757921663812480}
   sauceColliderTarget: {x: 1.5, y: 0.1, z: 1.5}
   sauceScaleMeltingTarget: {x: 1, y: 0.05, z: 1}
+  scaleOffset: 1

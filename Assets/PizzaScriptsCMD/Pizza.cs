@@ -8,7 +8,7 @@ public class Pizza : MonoBehaviour {
 	public static event PizzaDelegate Serve;
 
 	public List<Ingredient> ingredients;
-	public List<string> ingredientsIDs;
+	public List<IngredientSO> ingredientsSOs;
 
 	bool hovering = false;
 	int ingredientAmount;
@@ -43,18 +43,18 @@ public class Pizza : MonoBehaviour {
 
 	public void CaluclateAllIngredients()
 	{
-		foreach (string ingredient in ingredientsIDs)
+		foreach (IngredientSO ingredientSO in ingredientsSOs)
 		{
-			CalculateIngredient(ingredient);
+			CalculateIngredient(ingredientSO);
 		}
 	}
 
-	public void CalculateIngredient(string s)
+	public void CalculateIngredient(IngredientSO s)
 	{
 		ingredientAmount = 0;
 		for (int i =0; i < ingredients.Count; i++)
 		{
-			if (ingredients[i].ingredientID == s)
+			if (ingredients[i].ingredientSO.ingredientID == s.ingredientID)
 			{
 				ingredientAmount++;
 			}

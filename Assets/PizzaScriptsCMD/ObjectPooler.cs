@@ -7,9 +7,10 @@ public class ObjectPooler : MonoBehaviour
 	public delegate void ObjectPoolerDelegate(GameObject o);
 	public static event ObjectPoolerDelegate SendPrefabIngredient;
 
-	public string ingredientID;
+	public IngredientSO ingredientSO;
+	// public string ingredientID;
+    // public GameObject objectPrefab;
     public int poolingAmount;
-    public GameObject objectPrefab;
     public List<GameObject> pooledObjects;
 	public List<GameObject> deployedObjects;
 
@@ -20,18 +21,18 @@ public class ObjectPooler : MonoBehaviour
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < poolingAmount; i++)
         {
-            GameObject obj = (GameObject)Instantiate(objectPrefab);
-			obj.name = (ingredientID + " " + i);
+            GameObject obj = (GameObject)Instantiate(ingredientSO.ingredientPrefab);
+			obj.name = (ingredientSO.ingredientID + " " + i);
             obj.SetActive(false);
 			obj.transform.SetParent(this.transform, true);
-			obj.GetComponent<Ingredient>().ingredientID = ingredientID;
+//			obj.GetComponent<Ingredient>().ingredientSO.ingredientID = ingredientSO.ingredientID;
             pooledObjects.Add(obj);
         }
     }
 
 	void DeployedObjectsManager(string s, Vector3 v)
 	{
-		if (s == ingredientID)
+		if (s == ingredientSO.ingredientID)
 		{
 			if (deployedObjects.Count < poolingAmount && FetchPooledObject()!=null)
 			{
@@ -74,7 +75,7 @@ public class ObjectPooler : MonoBehaviour
 	public void ReturnPooledObject (Ingredient ingredient)
 	{
 		GameObject crashedObject = ingredient.gameObject;
-		if (ingredient.GetComponent<Ingredient>().ingredientID == ingredientID)
+		if (ingredient.GetComponent<Ingredient>().ingredientSO.ingredientID == ingredientSO.ingredientID)
 			{
 				crashedObject.transform.SetParent(this.transform);
 				crashedObject.transform.rotation = Quaternion.Euler(new Vector3(-90,0,0));
@@ -85,9 +86,9 @@ public class ObjectPooler : MonoBehaviour
 
 	public void GetPrefabIngredient (string s, Vector3 v)
 	{
-		if (s == ingredientID)
+		if (s == ingredientSO.ingredientID)
 		{
-			SendPrefabIngredient(objectPrefab);
+			SendPrefabIngredient(ingredientSO.ingredientPrefab);
 		}
 		else
 		{

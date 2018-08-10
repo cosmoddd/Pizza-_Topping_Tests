@@ -9,7 +9,7 @@ public class Ingredient : MonoBehaviour {
 	public static event IngredientDelegate ToppingRemove;
 	public static event IngredientDelegate ToppingCrash;
 	
-	public string ingredientID;
+	public IngredientSO ingredientSO;
 
 	MeshRenderer thisMeshRenderer;
 	public Material cookedMaterial;
